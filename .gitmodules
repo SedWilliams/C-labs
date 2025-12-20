@@ -1,0 +1,3 @@
+[submodule "frontend_masters_exercises"]
+	path = frontend_masters_exercises
+	url = https://github.com/rtfeldman/c-workshop-v1.git
