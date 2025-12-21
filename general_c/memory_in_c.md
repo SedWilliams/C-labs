@@ -56,5 +56,5 @@ string to end in a null terminator. A null terminator is simply a byte with all 
 
 Other types have different bits and bytes (and encodings) associcated with them.
 
-
+> "Everything in C is either an object type or a function type." - Robert C. Seacord, Effective C
 
