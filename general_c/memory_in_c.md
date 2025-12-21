@@ -51,6 +51,9 @@ the first byte of the sequence of bytes in memory which the whole string resides
 
 The variable name `str` is simply a label for that address in memory.
 
+Since the type is one single byte (char), whenever this variable is used, it expects the 
+string to end in a null terminator. A null terminator is simply a byte with all bits set to 0.
+
 Other types have different bits and bytes (and encodings) associcated with them.
 
 
