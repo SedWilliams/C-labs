@@ -33,3 +33,25 @@ If bits and bytes are values stored in memory, what is memory itself?
 <ins>Memory is simply a large, global, array of bytes.</ins> The global aspect gives it the Random Access property
 meaning that it is accessible from anywhere in the program at any time.
 
+## How C represents Memory and stores values
+
+Basic binary to value process: Binary (bits/bytes) --(encoding)--> Value (int, char, float, etc...)
+
+C leverages several organizations of these bits and bytes throughout the language. These organizations are called data types.
+
+For example with strings...they are made with the following syntax:
+
+```c
+char *str = "This is a string";
+```
+
+The char \* is the data type.
+It represents one byte. And the star (\*) returns the address-of
+the first byte of the sequence of bytes in memory which the whole string resides.  
+
+The variable name `str` is simply a label for that address in memory.
+
+Other types have different bits and bytes (and encodings) associcated with them.
+
+
+
