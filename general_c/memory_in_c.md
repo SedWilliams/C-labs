@@ -85,7 +85,7 @@ pointer
 
 ### But if C values are referenced as single integers, then how does the entirety of the value get used?
 
-UPDATED:
+UPDATED:  
 If a value is referenced using only a pointer to one part of it's value, how
 does the computer get the rest of the bytes associated with any given object/value?
 
@@ -99,7 +99,7 @@ corresponds to the amount of bytes to increment to) greater than the actual
 width of your value then you start pulling memory values from elsewhere in your program.
 C's no guardrails approach lets you do this.
 
-OUTDATED:
+OUTDATED:  
 That single integer the object is referenced with, is
 the address at which you can find the first part out of
 the whole associated object. Since the rest of the object
