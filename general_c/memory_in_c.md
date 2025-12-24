@@ -56,24 +56,50 @@ string to end in a null terminator. A null terminator is simply a byte with all 
 
 Other types have different bits and bytes (and encodings) associcated with them.
 
-<<<<<<< Updated upstream
 > "Everything in C is either an object type or a function type." - Robert C. Seacord, _Effective C_
-=======
+
 ## How are values in a C program referenced?
 
-Most arguments (refs to predefined values) are referenced
-in C as integers (See above section). This is because all the objects in the program
+Most arguments (refs to predefined values) are referenced in C as pointers in the form of
+integers (See above section) that reperesent the "address" of the values.
+
+This works because all the objects in the program
 will eventually boil down into (global) memory addresses
 which themselves are just integers of a particular
 bit/byte size. This is true of all types (Strings, floats, ints, etc..)
 
-### But if C values are referenced as single integers,
-### then how does the entirety of the value get used?
+References create pointers that boil down to integer addresses
+which hold integers converted from human value to binary via encodings.
 
-If a value is referenced using only one integer, how
-does the computer get the rest of the bytes associated
-with any given object/value?
+And initialized values are stored in memory as their binary conversions
+as well, but expose different addresses which can be 
+referenced via pointers.
 
+initialized value -> binary conversion -> stored in memory at address X
+pointer -> memory address of an initialized value -> IF dereferenced -> gets the value at address X
+
+both the initialized value and the pointer to that value
+ultimately boil down to integer.
+
+pointer 
+
+### But if C values are referenced as single integers, then how does the entirety of the value get used?
+
+UPDATED:
+If a value is referenced using only a pointer to one part of it's value, how
+does the computer get the rest of the bytes associated with any given object/value?
+
+All bytes of a single human-value are referenceable from just a pointer to the first byte
+because of the way that memory is stored. Processors store memory sequentially so
+when you know the first byte, and also how many bytes are associated with that value
+then you can just increment from the initial address to find the rest of the bytes.
+* That process is not automated in C which causes memory unsafety. For example,
+when you use the write(int64, int64, n) function, when you pass a value n (which
+corresponds to the amount of bytes to increment to) greater than the actual
+width of your value then you start pulling memory values from elsewhere in your program.
+C's no guardrails approach lets you do this.
+
+OUTDATED:
 That single integer the object is referenced with, is
 the address at which you can find the first part out of
 the whole associated object. Since the rest of the object
@@ -84,8 +110,4 @@ simple as iterating through the rest of that value.
 The computer stops iterating typically when it reaches
 a null terminator value (a byte of all zeroes). Which
 stops it from pulling more memory than it should (C will
-definitely let you do so, no gaurdrails).
-
-
->>>>>>> Stashed changes
-
+definitely let you do so, no guardrails). 
