@@ -33,7 +33,7 @@ If bits and bytes are values stored in memory, what is memory itself?
 <ins>Memory is simply a large, global, array of bytes.</ins> The global aspect gives it the Random Access property
 meaning that it is accessible from anywhere in the program at any time.
 
-## How C represents Memory and stores values
+## Syntax for storing and creating objects in C
 
 Basic binary to value process: Binary (bits/bytes) --(encoding)--> Value (int, char, float, etc...)
 
@@ -56,5 +56,36 @@ string to end in a null terminator. A null terminator is simply a byte with all 
 
 Other types have different bits and bytes (and encodings) associcated with them.
 
+<<<<<<< Updated upstream
 > "Everything in C is either an object type or a function type." - Robert C. Seacord, _Effective C_
+=======
+## How are values in a C program referenced?
+
+Most arguments (refs to predefined values) are referenced
+in C as integers (See above section). This is because all the objects in the program
+will eventually boil down into (global) memory addresses
+which themselves are just integers of a particular
+bit/byte size. This is true of all types (Strings, floats, ints, etc..)
+
+### But if C values are referenced as single integers,
+### then how does the entirety of the value get used?
+
+If a value is referenced using only one integer, how
+does the computer get the rest of the bytes associated
+with any given object/value?
+
+That single integer the object is referenced with, is
+the address at which you can find the first part out of
+the whole associated object. Since the rest of the object
+is stored sequentially right after the initial pointer
+then getting the rest of any associated value is as
+simple as iterating through the rest of that value.
+
+The computer stops iterating typically when it reaches
+a null terminator value (a byte of all zeroes). Which
+stops it from pulling more memory than it should (C will
+definitely let you do so, no gaurdrails).
+
+
+>>>>>>> Stashed changes
 
