@@ -73,6 +73,7 @@ char *to_path(char *req) {
     //prev loop stops at the ' ' and we want to throw that value away
     //      so we do a start++ to skip it.
     start++;
+    start++;
     
     //traverses from 'start' until the end of the file segment of req header
     for(end = start; end[0] != ' '; end++) {
