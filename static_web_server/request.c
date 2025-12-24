@@ -81,7 +81,7 @@ char *to_path(char *req) {
         //manually add the slash
         end[0] = '/';
     }
-
+    
     memcpy(end + 1, default_file, strlen(default_file) + 1);
     return start;
 }
