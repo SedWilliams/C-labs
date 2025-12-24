@@ -48,6 +48,12 @@ char *get_request_type(char *req) {
 //      than building a new string and returning that string
 char *to_path(char *req) {
 
+    //NOTE:
+    //      When incrementing the start and end values
+    //      and not indexing them, we are accessing the pointer
+    //      and incrementing THAT value, not the value found
+    //      at the memory address that pointer points to
+
     char *start;
     char *end;
 
