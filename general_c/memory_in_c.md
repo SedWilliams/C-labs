@@ -93,21 +93,20 @@ All bytes of a single human-value are referenceable from just a pointer to the f
 because of the way that memory is stored. Processors store memory sequentially so
 when you know the first byte, and also how many bytes are associated with that value
 then you can just increment from the initial address to find the rest of the bytes.
-* That process is not automated in C which causes memory unsafety. For example,
+That or the value itself has a terminator value that indicates the end of the value.
+Example...null terminator for strings.
+* That process is not always automated in C which causes memory unsafety. For example,
 when you use the write(int64, int64, n) function, when you pass a value n (which
 corresponds to the amount of bytes to increment to) greater than the actual
 width of your value then you start pulling memory values from elsewhere in your program.
 C's no guardrails approach lets you do this.
 
-OUTDATED:  
-That single integer the object is referenced with, is
-the address at which you can find the first part out of
-the whole associated object. Since the rest of the object
-is stored sequentially right after the initial pointer
-then getting the rest of any associated value is as
-simple as iterating through the rest of that value.
+## Further questions
 
-The computer stops iterating typically when it reaches
-a null terminator value (a byte of all zeroes). Which
-stops it from pulling more memory than it should (C will
-definitely let you do so, no guardrails). 
+Memory and storage is referenced above as if it's the same thing.
+
+My questions:
+* When running a C program and thinking about memory, am I thinking about RAM,
+or storage (SSD/HDD), or the CPU memory?
+* Which storage/memory is used in the C programs I write?
+* What are the different forms of memory/storage in a computer system (stack, heap, registers, cache, etc..)?
