@@ -89,8 +89,7 @@ So you cannot use a simple contiguous character array
 You must allocate writeable memory first, and then
 write to it.
 
-This further shows that the ideas of mutable/immutable
-are highly important.
+This further shows that the ideas of mutable/immutable are highly important.
 
 The stack is for immutable/deterministic data, and allows
 for increased speed.
@@ -106,3 +105,17 @@ cost of speed. And you have less flexibility with statically
 typed languages but you gain speed.
 
 > Also see -> memory_in_c.md
+
+## File Metadata
+
+File metadata (size, name, etc..) is accessed separately from the file itself.
+
+The C stdlib exposes the stat struct for this purpose. You first define a struct of type stat,
+and then you initialize that struct using the fstat() function.
+
+The struct acts as a buffer which you populate with metadata using the fstat() function.
+
+INSERT CODE EXAMPLE
+
+
+
