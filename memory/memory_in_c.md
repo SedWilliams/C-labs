@@ -1,37 +1,4 @@
-
-# Memory Representation in C
-
-## Intro
-
-Memory in C is closely related to the general format and technique of how computers store and manage data
-at the lowest level.
-
-Obviously, the computer stores things in binary at the lowest level (1s and 0s).
-
-But humans do not store 1s and 0s. So it makes sense that like programming languages in general <ins>we create abstractions
-or constructs for the purpose of representing binary/memory</ins> in a way that is easier for humans to understand whether in
-programming languages or human language.
-
-Thus we arrive at...
-
-## Bits and Bytes
-
-* One bit is one possibility for a 0 or 1.
-* One Byte is 8 bits.
-
-The computer itself does not give meaning to any particular orientation of 1s or 0s. It simply recognizes the sequence.
-It is the work of humans that gives specific meanings to the 1s and 0s. And that is where the concepts of bits and bytes come in.
-
-<ins>We use bits and bytes to represent different values, and then we use encodings (ASCII, UTF-8, etc.) to represent characters, emojis, etc...</ins>
-
-The way that we group bits into bytes and bytes into larger structures is what gives meaning to the data.
-
-## What is "Memory".
-
-If bits and bytes are values stored in memory, what is memory itself?
-
-<ins>Memory is simply a large, global, array of bytes.</ins> The global aspect gives it the Random Access property
-meaning that it is accessible from anywhere in the program at any time.
+# How C Views/Uses Memory
 
 ## Syntax for storing and creating objects in C
 
@@ -57,6 +24,7 @@ string to end in a null terminator. A null terminator is simply a byte with all 
 Other types have different bits and bytes (and encodings) associcated with them.
 
 > "Everything in C is either an object type or a function type." - Robert C. Seacord, _Effective C_
+
 
 ## How are values in a C program referenced?
 
