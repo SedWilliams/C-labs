@@ -108,6 +108,8 @@ typed languages but you gain speed.
 
 ## File Metadata
 
+\(See file\_metadata.c\)
+
 File metadata (size, name, etc..) is accessed separately from the file itself.
 
 The C stdlib exposes the stat struct for this purpose. You first define a struct of type stat,
