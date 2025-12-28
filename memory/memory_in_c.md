@@ -69,8 +69,51 @@ corresponds to the amount of bytes to increment to) greater than the actual
 width of your value then you start pulling memory values from elsewhere in your program.
 C's no guardrails approach lets you do this.
 
-## Further questions
+## Memory of functions
 
+In C, when a function is called, a new "stack frame" is created in memory.
+
+When that function returns or exits its objects in that stack frame are
+automatically "dropped" \(removed from memory\).
+* The most automatic memory management in C.
+* Stops memory leaks on function calls.
+
+This behavior with functions is why it's dangerous to return pointers to
+values that were defined and instantiated inside a function.
+
+Once the function exits, the values the pointer may point to are gone. And thus, result
+in undefined behavior if you try to \(de\)reference that pointer.
+
+This is why it's often safer to mutate passed in values as opposed to returning new values
+from functions in C.
+
+This problem however introduces manual memory management techniques in C.
+
+## Manual memory management in C
+C provides functions in its standard library to manually allocate and free memory.
+These functions include `malloc()`, `calloc()`, `realloc()`, and `free()`.
+
+When you use `malloc()` or `calloc()`, you are requesting a block of memory from the heap.
+This memory remains allocated until you explicitly free it using the `free()` function.
+Failing to free allocated memory can lead to memory leaks, where memory that is no longer needed is not returned to the system.
+
+This is the same ideology used when we open files for example. We don't want the file descriptor,
+to be close prematurely so it likely uses malloc under the hood. And then when we are done with the
+file we must call close(fd) to free that memory back up. Just as we would use free() for a malloc() call.
+
+It is important to note that manual memory allocation can be avoided. You don't always need to use it
+and it's often safer to not use it just because of the potential for bugs that doing
+manual memory management can introduce.
+
+It's important to be aware of the types of errors that stem from manual malloc/dealloc...
+* "Use After Free" errors
+    * Double-free
+    * Standard Use-after (referencing freed memory)
+* Buffer overflow errors
+    * Referencing too much memory than is intended
+        - Leads to undefined behavior (accessing random memory)
+
+## Further questions
 Memory and storage is referenced above as if it's the same thing.
 
 My questions:
