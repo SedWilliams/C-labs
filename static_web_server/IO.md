@@ -104,7 +104,7 @@ flexibility when those languages are dynamic, but at the
 cost of speed. And you have less flexibility with statically
 typed languages but you gain speed.
 
-> Also see -> memory_in_c.md
+> Also see -> memory\_in\_c.md
 
 ## File Metadata
 
