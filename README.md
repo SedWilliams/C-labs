@@ -10,3 +10,4 @@
 
 ## C cheat sheet from [link](https://github.com/chubin/cheat.sh.git)
 
+## Directories
