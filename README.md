@@ -11,3 +11,7 @@
 ## C cheat sheet from [link](https://github.com/chubin/cheat.sh.git)
 
 ## Directories
+* c_syntax
+* general_c
+* memory
+* static_web_server (practice project)
