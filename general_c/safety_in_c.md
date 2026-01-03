@@ -1,6 +1,8 @@
 
 # Safety or lack therof in C
 
+## Intro
+
 Consider the following C code snippet:
 
 ```c
@@ -26,4 +28,4 @@ not providing any tight guardrails.
 
 While __undefined__ behavior is considered an error, __unspecified__ behavior is left up to the programmer.
 
-
+## Expect all input to be dangerous (program safely)
